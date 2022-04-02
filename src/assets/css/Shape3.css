@@ -1,0 +1,89 @@
+.card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    padding: 30px;
+    background: #042104;
+    border: 2px solid rgb(0, 0, 0);
+    /* animation: animateColor 8s linear infinite; */
+}
+
+button {
+    position: absolute;
+    top: 50px;
+    width: 75px;
+    height: 30px;
+}
+
+@keyframes animateColor {
+    0% {
+        filter: hue-rotate(0deg)
+    }
+    100% {
+        filter: hue-rotate(360deg)
+    }
+}
+
+.card-container .container {
+    display: flex;
+}
+
+.card-container .container .circle {
+    position:  relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 -7.5px;
+}
+
+.card-container .container .circle span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(calc(18deg * var(--i)))
+    /* 360 / 20 = 18deg */
+}
+
+.card-container .container .circle span::before{
+    content: '';
+    position: absolute;
+    right: 0;
+    top: calc(50% - 7.5px);
+    width: 15px;
+    height: 15px;
+    background: #00ff0a;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00ff0a,
+    0 0 20px #00ff0a,
+    0 0 40px #00ff0a,
+    0 0 60px #00ff0a,
+    0 0 80px #00ff0a,
+    0 0 100px #00ff0a;
+    transform: scale(0.1);
+    animation: animate 2s linear infinite;
+    /* delai pour creer cercle */
+    animation-delay:  calc(0.05s * var(--i));
+}
+
+@keyframes animate {
+    0% {
+        transform: scale(1);
+    }
+    50%,100% {
+        transform: scale(0.1)
+    }
+}
+
+/*pour inverser la 2e boucle */
+
+.card-container .container .circle:nth-of-type(2) {
+    transform: rotate(180deg)
+}
+
+/* faire le infini discontinu */
+.card-container .container .circle:nth-of-type(2) span::before{
+    animation-delay:  calc(-0.05s * var(--i));
+}

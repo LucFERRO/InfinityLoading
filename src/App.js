@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useRef, CSSProperties} from 'react';
+// import uuidv4 from 'uuid/v4';
+import Card from './components/Card';
+import './assets/css/Home.css';
+
+import Shape1 from './components/Shape1';
+import './assets/css/Shape1.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [] = useState([])
+    return (
+        <div id="home">
+            <Card shape={<Shape1/>} />
+            <Card shape={<Shape1/>} />
+            <Card shape={<Shape1/>} />
+        </div>
+    )
 }
 
 export default App;
